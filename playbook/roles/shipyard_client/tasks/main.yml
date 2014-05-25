@@ -1,0 +1,8 @@
+---
+
+# XXX NOTE: Should probably run the shipyard agent via docker...
+# XXX How to get the latest version?
+- name: download shipyard agent
+  get_url: url=https://github.com/shipyard/shipyard-agent/releases/download/v0.3.1/shipyard-agent dest=/usr/local/bin/shipyard-agent mode=0750
+
+#- name: start shipyard agent

@@ -1,0 +1,11 @@
+---
+
+- name: check if the shipyard deployment container has already been installed
+  shell: docker.io images | grep "shipyard\/deploy"
+  register: shipyard_image
+  changed_when: shipyard_image.rc > 0
+
+- name: install shipyard deployment container
+  shell: docker.io run -i -t -v /var/run/docker.sock:/docker.sock shipyard/deploy setup
+  when: shipyard_image.changed
+

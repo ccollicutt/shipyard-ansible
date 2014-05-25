@@ -1,0 +1,17 @@
+---
+
+- hosts: all
+  roles:
+   - common
+
+- hosts: docker_hosts
+  roles:
+  - { role: docker_host }
+
+- hosts: shipyard_hosts
+  roles:
+  - { role: shipyard_host }
+
+- hosts: shipyard_clients
+  roles:
+  - { role: shipyard_client }
